@@ -10,10 +10,14 @@ add_definitions("-DUNICODE" "-D_UNICODE")
 file(GLOB_RECURSE EngineLib_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tgaimage/*.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tgaimage/*.cpp"
 )
 
 add_executable(TinyRenderer
     main.cpp
+    ./tgaimage/tgaimage.h
+    ./tgaimage/tgaimage.cpp
     ${GLOB_RECURSE}
 )
 
