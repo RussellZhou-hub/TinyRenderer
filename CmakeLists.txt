@@ -14,6 +14,20 @@ file(GLOB_RECURSE TinyRenderer_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/tgaimage/*.cpp"
 )
 
+# 排除 build 文件夹中的所有文件
+foreach(file ${TinyRenderer_SOURCES})
+    if(${file} MATCHES ".*/build/.*")
+        list(REMOVE_ITEM TinyRenderer_SOURCES ${file})
+    endif()
+endforeach()
+
+# 打印 SRC_FILES 中的所有文件
+message(STATUS "Collected source files:")
+foreach(file ${TinyRenderer_SOURCES})
+    message(STATUS "  ${file}")
+endforeach()
+
+
 add_executable(TinyRenderer
     ./tgaimage/tgaimage.h
     ./tgaimage/tgaimage.cpp
